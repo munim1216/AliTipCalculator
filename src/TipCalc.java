@@ -44,9 +44,12 @@ public class TipCalc {
             }
         }
         else {
-            System.out.print("Type the number of bills needed: ");
+            System.out.print("One, Two, or Three separate bills?: ");
             int numberOfBills = scan.nextInt();
             scan.nextLine();
+            while (numberOfBills != 1 && numberOfBills !=2 && numberOfBills != 3) {
+
+            }
             for (int i = 1; i <= numberOfBills; ++i) {
                 bill += "\nBill " + i + "\n";
                 System.out.println("This is Bill " + i + "\n");
@@ -68,6 +71,5 @@ public class TipCalc {
             }
         }
         System.out.print(bill);
-
     }
 }

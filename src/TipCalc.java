@@ -5,12 +5,15 @@ public class TipCalc {
         Scanner scan = new Scanner(System.in);
         int groupSize;
         double tip;
-        double itemAddedToBill;
+        double priceAddedToBill;
         double billBeforeTip;
         double billAfterTip;
+        String itemList = "Items Purchased \n ";
+        String itemAddedToBill = "empty";
         int togetherPay;
-        // ask if paying individually or together
-        // gathering user input
+
+
+        // Group Size & If Paying Together
         System.out.println("Welcome to Jade's tip calculator!");
         System.out.print("How many people are in your group: ");
         groupSize = scan.nextInt();
@@ -20,6 +23,20 @@ public class TipCalc {
         while (togetherPay != 1 && togetherPay != 0) {
             System.out.print("Please type 1 or 0, not any other number: ");
             togetherPay = scan.nextInt();
+        }
+
+        // checking how many bills to create
+        if (togetherPay == 1) {
+            while (itemAddedToBill != "done") {
+                System.out.println("Okay! Only one bill will be printed. \n ");
+                System.out.print("Enter an item bought today: ");
+                itemAddedToBill = scan.nextLine();
+                System.out.print("test");
+                // itemAddedToBill += " \n";
+                System.out.print(itemAddedToBill);
+            }
+        }
+        else {
 
         }
     }

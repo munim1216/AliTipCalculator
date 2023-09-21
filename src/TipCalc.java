@@ -45,7 +45,9 @@ public class TipCalc {
             System.out.print("Type the number of bills needed: ");
             int numberOfBills = scan.nextInt();
             scan.nextLine();
+            for (int i = 1; i <=numberOfBills; ++i) {
 
+            }
         }
     }
 }

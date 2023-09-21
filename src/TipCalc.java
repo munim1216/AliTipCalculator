@@ -20,23 +20,31 @@ public class TipCalc {
         scan.nextLine();
         System.out.print("Type 1 to pay together, Type 0 to pay separately: ");
         togetherPay = scan.nextInt();
+        scan.nextLine();
         while (togetherPay != 1 && togetherPay != 0) {
             System.out.print("Please type 1 or 0, not any other number: ");
             togetherPay = scan.nextInt();
+            scan.nextLine();
         }
 
         // checking how many bills to create
         if (togetherPay == 1) {
-            while (itemAddedToBill != "done") {
-                System.out.println("Okay! Only one bill will be printed. \n ");
-                System.out.print("Enter an item bought today: ");
+            while (!itemAddedToBill.equals("done")) {
+                System.out.println("Okay! Only one bill will be printed.");
+                System.out.print("Enter an item bought today, or done to finish: ");
                 itemAddedToBill = scan.nextLine();
-                System.out.print("test");
-                // itemAddedToBill += " \n";
-                System.out.print(itemAddedToBill);
+                    if (!itemAddedToBill.equals("done")) {
+                        System.out.print("Type the price of the item: ");
+                        priceAddedToBill = scan.nextDouble();
+                        scan.nextLine();
+                        itemList += itemAddedToBill + "\n";
+                    }
             }
         }
         else {
+            System.out.print("Type the number of bills needed: ");
+            int numberOfBills = scan.nextInt();
+            scan.nextLine();
 
         }
     }

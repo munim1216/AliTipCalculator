@@ -6,9 +6,9 @@ public class TipCalc {
         int groupSize;
         double tip;
         double priceAddedToBill;
-        double billBeforeTip;
+        double billBeforeTip = 0;
         double billAfterTip;
-        String itemList = "Items Purchased \n ";
+        String itemList = "Items Purchased \n";
         String itemAddedToBill = "empty";
         int togetherPay;
 
@@ -36,8 +36,9 @@ public class TipCalc {
                     if (!itemAddedToBill.equals("done")) {
                         System.out.print("Type the price of the item: ");
                         priceAddedToBill = scan.nextDouble();
+                        billBeforeTip = priceAddedToBill;
                         scan.nextLine();
-                        itemList += itemAddedToBill + "\n";
+                        itemList += itemAddedToBill + " - $" + priceAddedToBill + "\n";
                     }
             }
         }
@@ -45,9 +46,24 @@ public class TipCalc {
             System.out.print("Type the number of bills needed: ");
             int numberOfBills = scan.nextInt();
             scan.nextLine();
-            for (int i = 1; i <=numberOfBills; ++i) {
-
+            for (int i = 1; i <= numberOfBills; ++i) {
+                itemList += "\nBill " + i + "\n";
+                System.out.println("This is Bill " + i + "\n");
+                while (!itemAddedToBill.equals("done")) {
+                    System.out.print("Enter an item bought today, or done to finish: ");
+                    itemAddedToBill = scan.nextLine();
+                    if (!itemAddedToBill.equals("done")) {
+                        System.out.print("Type the price of the item: ");
+                        priceAddedToBill = scan.nextDouble();
+                        scan.nextLine();
+                        billBeforeTip += priceAddedToBill;
+                        itemList += itemAddedToBill + " - $" + priceAddedToBill + "\n";
+                    }
+                }
+                itemAddedToBill = "empty";
             }
         }
+        System.out.print(itemList);
+        System.out.print(billBeforeTip);
     }
 }

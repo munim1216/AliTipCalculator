@@ -6,9 +6,9 @@ public class TipCalc {
         int groupSize;
         double tip;
         double priceAddedToBill;
-        double billBeforeTip = 0;
-        double billAfterTip;
-        String itemList = "Items Purchased \n";
+        double billPerPerson = 0;
+        double billTotal = 0;
+        String bill = "Items Purchased \n";
         String itemAddedToBill = "empty";
         int togetherPay;
 
@@ -36,9 +36,10 @@ public class TipCalc {
                     if (!itemAddedToBill.equals("done")) {
                         System.out.print("Type the price of the item: ");
                         priceAddedToBill = scan.nextDouble();
-                        billBeforeTip = priceAddedToBill;
+                        billPerPerson = priceAddedToBill;
                         scan.nextLine();
-                        itemList += itemAddedToBill + " - $" + priceAddedToBill + "\n";
+                        bill += itemAddedToBill + " - $" + priceAddedToBill + "\n";
+                        billTotal += billPerPerson;
                     }
             }
         }
@@ -47,7 +48,7 @@ public class TipCalc {
             int numberOfBills = scan.nextInt();
             scan.nextLine();
             for (int i = 1; i <= numberOfBills; ++i) {
-                itemList += "\nBill " + i + "\n";
+                bill += "\nBill " + i + "\n";
                 System.out.println("This is Bill " + i + "\n");
                 while (!itemAddedToBill.equals("done")) {
                     System.out.print("Enter an item bought today, or done to finish: ");
@@ -56,14 +57,17 @@ public class TipCalc {
                         System.out.print("Type the price of the item: ");
                         priceAddedToBill = scan.nextDouble();
                         scan.nextLine();
-                        billBeforeTip += priceAddedToBill;
-                        itemList += itemAddedToBill + " - $" + priceAddedToBill + "\n";
+                        billPerPerson += priceAddedToBill;
+                        bill += itemAddedToBill + " - $" + priceAddedToBill + "\n";
                     }
                 }
                 itemAddedToBill = "empty";
+                bill += "The bill before tips is $" + billPerPerson + "\n";
+                billTotal += billPerPerson;
+                billPerPerson = 0;
             }
         }
-        System.out.print(itemList);
-        System.out.print(billBeforeTip);
+        System.out.print(bill);
+
     }
 }

@@ -5,10 +5,12 @@ public class TipCalc {
         Scanner scan = new Scanner(System.in);
         double priceAddedToBill;
         double billPerPerson = 0;
-        double billTotal = 0;
+        int groupSize;
+        int itemsOrdered = 0;
         String bill = "Items Purchased \n";
         String itemAddedToBill = "empty";
         int togetherPay;
+        double billTotalPrice = 0;
 
 
         // Group Size & If Paying Together
@@ -27,8 +29,8 @@ public class TipCalc {
 
         // checking how many bills to create
         if (togetherPay == 1) {
+            System.out.println("Okay! Only one bill will be printed.");
             while (!itemAddedToBill.equals("done")) {
-                System.out.println("Okay! Only one bill will be printed.");
                 System.out.print("Enter an item bought today, or done to finish: ");
                 itemAddedToBill = scan.nextLine();
                     if (!itemAddedToBill.equals("done")) {
@@ -36,10 +38,13 @@ public class TipCalc {
                         priceAddedToBill = scan.nextDouble();
                         billPerPerson = priceAddedToBill;
                         scan.nextLine();
+                        itemsOrdered++;
                         bill += itemAddedToBill + " - $" + priceAddedToBill + "\n";
-                        billTotal += billPerPerson;
+                        billTotalPrice += priceAddedToBill;
                     }
             }
+            BillSaver single = new BillSaver(1 , groupSize, itemsOrdered, bill, billTotalPrice);
+            single.billBefore();
         }
         else {
             System.out.print("One, Two, or Three separate bills?: ");
@@ -64,10 +69,10 @@ public class TipCalc {
                 }
                 itemAddedToBill = "empty";
                 bill += "The bill before tips is $" + billPerPerson + "\n";
-                billTotal += billPerPerson;
                 billPerPerson = 0;
             }
         }
-        System.out.print(bill);
+
+
     }
 }

@@ -13,7 +13,7 @@ public class BillSaver {
         groupSize = gS;
         totalItems = tI;
         itemsOrdered = iO;
-        billPrice = (Math.round(100 * bP)) / 100.0;
+        billPrice = bP;
     }
     public double tipAmount(double t) {
         tip = t;
@@ -23,8 +23,8 @@ public class BillSaver {
         System.out.println ("This is bill number " + billNumber);
         System.out.println("-- Items Ordered Today --");
         System.out.println(itemsOrdered);
-        System.out.println("The per person cost before tip is: " + (billPrice / groupSize));
-        System.out.println("The Total Price Before Tip is: " + billPrice);
+        System.out.println("The per person cost before tip is: $" + ((Math.round(100 * billPrice / groupSize)) / 100));
+        System.out.println("The Total Price Before Tip is: $" + billPrice);
 
     }
 

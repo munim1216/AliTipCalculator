@@ -4,7 +4,6 @@ public class TipCalc {
         // initializing variables
         Scanner scan = new Scanner(System.in);
         double priceAddedToBill;
-        double billPerPerson = 0;
         int groupSize;
         int itemsOrdered = 0;
         String bill = "Items Purchased \n";
@@ -41,8 +40,7 @@ public class TipCalc {
                 itemAddedToBill = scan.nextLine();
                     if (!itemAddedToBill.equals("done")) {
                         System.out.print("Type the price of the item: ");
-                        priceAddedToBill = scan.nextDouble();
-                        billPerPerson = priceAddedToBill;
+                        priceAddedToBill = (Math.round(100 * scan.nextDouble())) / 100.0;
                         scan.nextLine();
                         itemsOrdered++;
                         bill += itemAddedToBill + " - $" + priceAddedToBill + "\n";
@@ -78,7 +76,6 @@ public class TipCalc {
                         if (!itemAddedToBill.equals("done")) {
                             System.out.print("Type the price of the item: ");
                             priceAddedToBill = scan.nextDouble();
-                            billPerPerson = priceAddedToBill;
                             scan.nextLine();
                             itemsOrdered++;
                             bill += itemAddedToBill + " - $" + priceAddedToBill + "\n";

@@ -30,16 +30,16 @@ public class BillSaver {
         System.out.println("-- Items Ordered Today --");
         System.out.println(itemsOrdered);
         System.out.println("The per person cost before tip is: $" + ((Math.round(100 * billPrice / groupSize)) / 100.0) + checker.lastDigit(((Math.round(100 * billPrice / groupSize)) / 100.0)));
-        System.out.println("The total price before tip is: $" + ((Math.round(100 * billPrice)) / 100.0) + checker.lastDigit(billPrice) + "\n");
+        System.out.println("The total price before tip is: $" + ((Math.round(100 * billPrice)) / 100.0) + checker.lastDigit(billPrice));
     }
     public void billAfter() {
         System.out.println ("This is bill number " + billNumber);
         System.out.println("-- Items Ordered Today --");
         System.out.println(itemsOrdered);
-        System.out.println("The per person cost for tip is: $" + ((Math.round(100 * (tip / groupSize)) / 100)));
+        System.out.println("The per person cost for tip is: $" + ((Math.round(100 * tip / groupSize)) / 100.0) + checker.lastDigit(((Math.round(100 * tip / groupSize)) / 100.0)));
         System.out.print("The per person cost for the whole order is: $" + (Math.round(100 * (billPrice / groupSize)) / 100.0));
         System.out.println(checker.lastDigit((Math.round(100 * (billPrice / groupSize))) / 100.0 ));
-        System.out.println("The total price after tip is: $" + billPrice +  checker.lastDigit(billPrice) + "\n");
+        System.out.println("The total price after tip is: $" + billPrice +  checker.lastDigit(billPrice));
     }
 
     public double totalBillGetter() {

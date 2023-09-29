@@ -1,7 +1,19 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 public class TipCalc {
     public static void main(String[] args) {
         // initializing variables
+
+//        ArrayList<BillSaver> bills = new ArrayList<BillSaver>();
+//
+//
+//        BillSaver bill = new BillSaver(4, 5, 6, "h", 5.6);
+//        bills.add(bill);
+//
+//        for (int i = 0; i < bills.size(); i++) {
+//            bills.get(i).billAfter();
+//        }
+
         Scanner scan = new Scanner(System.in);
         double priceAddedToBill;
         int groupSize;
@@ -68,7 +80,7 @@ public class TipCalc {
                     single.totalBillSetter(single.totalBillGetter() + tip);
                     single.tipSetter(tip);
                     single.billAfter();
-                    System.out.println("$" + tip + " is " + single.tipAmount() + "% of your order");
+                    System.out.println("$" + tip + " is " + single.tipAmount() + "% of your order \n");
                     System.out.println("Thank you for enjoying a meal at Jade's!");
 
                 } else if (tipDecision.equals("no")) {
@@ -137,7 +149,7 @@ public class TipCalc {
                                     billOne.totalBillSetter(billOne.totalBillGetter() + tip);
                                     billOne.tipSetter(tip);
                                     billOne.billAfter();
-                                    System.out.println("$" + tip + " is " + billOne.tipAmount() + "% of your order");
+                                    System.out.println("$" + tip + " is " + billOne.tipAmount() + "% of your order\n");
                                     System.out.println("Thank you for enjoying a meal at Jade's!");
 
                                 } else if (tipDecision.equals("no")) {
@@ -174,7 +186,7 @@ public class TipCalc {
                                     billTwo.totalBillSetter(billTwo.totalBillGetter() + tip);
                                     billTwo.tipSetter(tip);
                                     billTwo.billAfter();
-                                    System.out.println("$" + tip + " is " + billTwo.tipAmount() + "% of your order");
+                                    System.out.println("$" + tip + " is " + billTwo.tipAmount() + "% of your order\n");
                                     System.out.println("Thank you for enjoying a meal at Jade's!");
 
                                 } else if (tipDecision.equals("no")) {
@@ -203,7 +215,7 @@ public class TipCalc {
                                     billThree.totalBillSetter(billThree.totalBillGetter() + tip);
                                     billThree.tipSetter(tip);
                                     billThree.billAfter();
-                                    System.out.println("$" + tip + " is " + billThree.tipAmount() + "% of your order");
+                                    System.out.println("$" + tip + " is " + billThree.tipAmount() + "% of your order\n");
                                     System.out.println("Thank you for enjoying a meal at Jade's!");
 
                                 } else if (tipDecision.equals("no")) {
@@ -268,7 +280,7 @@ public class TipCalc {
                                     billOne.totalBillSetter(billOne.totalBillGetter() + tip);
                                     billOne.tipSetter(tip);
                                     billOne.billAfter();
-                                    System.out.println("$" + tip + " is " + billOne.tipAmount() + "% of your order");
+                                    System.out.println("$" + tip + " is " + billOne.tipAmount() + "% of your order\n");
                                     System.out.println("Thank you for enjoying a meal at Jade's!");
 
                                 } else if (tipDecision.equals("no")) {
@@ -298,7 +310,7 @@ public class TipCalc {
                                     billTwo.totalBillSetter(billTwo.totalBillGetter() + tip);
                                     billTwo.tipSetter(tip);
                                     billTwo.billAfter();
-                                    System.out.println("$" + tip + " is " + billTwo.tipAmount() + "% of your order");
+                                    System.out.println("$" + tip + " is " + billTwo.tipAmount() + "% of your order\n");
                                     System.out.println("Thank you for enjoying a meal at Jade's!");
 
                                 } else if (tipDecision.equals("no")) {

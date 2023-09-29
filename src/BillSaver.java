@@ -32,7 +32,7 @@ public class BillSaver {
         System.out.println(itemsOrdered);
         System.out.println("The per person cost for tip is: $" + ((Math.round(100 * tip / groupSize)) / 100));
         System.out.println("The per person cost for the whole order is: $" + ((Math.round(100 * billPrice / groupSize)) / 100));
-        System.out.println("The total price after tip is: $" + billPrice);
+        System.out.println("The total price after tip is: $" + billPrice + "\n");
     }
 
     public double totalBillGetter() {

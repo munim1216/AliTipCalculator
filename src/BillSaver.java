@@ -8,6 +8,8 @@ public class BillSaver {
     private double tip;
     private int groupSize;
 
+    Check checker = new Check();
+
     public BillSaver (int bN, int gS, int tI, String iO, double bP){
         billNumber = bN;
         groupSize = gS;
@@ -15,24 +17,29 @@ public class BillSaver {
         itemsOrdered = iO;
         billPrice = bP;
     }
-    public double tipAmount(double t) {
+
+    public void tipSetter(double t) {
         tip = t;
+    }
+
+    public double tipAmount() {
         return ((Math.round(100 * tip / billPrice)));
     }
     public void billBefore() {
         System.out.println ("This is bill number " + billNumber);
         System.out.println("-- Items Ordered Today --");
         System.out.println(itemsOrdered);
-        System.out.println("The per person cost before tip is: $" + ((Math.round(100 * billPrice / groupSize)) / 100.0));
-        System.out.println("The Total Price Before Tip is: $" + billPrice);
+        System.out.println("The per person cost before tip is: $" + ((Math.round(100 * billPrice / groupSize)) / 100.0) + checker.lastDigit(((Math.round(100 * billPrice / groupSize)) / 100.0)));
+        System.out.println("The total price before tip is: $" + ((Math.round(100 * billPrice)) / 100.0) + checker.lastDigit(billPrice) + "\n");
     }
     public void billAfter() {
         System.out.println ("This is bill number " + billNumber);
         System.out.println("-- Items Ordered Today --");
         System.out.println(itemsOrdered);
-        System.out.println("The per person cost for tip is: $" + ((Math.round(100 * tip / groupSize)) / 100));
-        System.out.println("The per person cost for the whole order is: $" + ((Math.round(100 * billPrice / groupSize)) / 100));
-        System.out.println("The total price after tip is: $" + billPrice + "\n");
+        System.out.println("The per person cost for tip is: $" + ((Math.round(100 * (tip / groupSize)) / 100)));
+        System.out.print("The per person cost for the whole order is: $" + (Math.round(100 * (billPrice / groupSize)) / 100.0));
+        System.out.println(checker.lastDigit((Math.round(100 * (billPrice / groupSize))) / 100.0 ));
+        System.out.println("The total price after tip is: $" + billPrice +  checker.lastDigit(billPrice) + "\n");
     }
 
     public double totalBillGetter() {

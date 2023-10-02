@@ -2,8 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class TipCalc {
     public static void main(String[] args) {
-        // initializing variables
-
+        // to be used if i decide to refactor it
 //        ArrayList<BillSaver> bills = new ArrayList<BillSaver>();
 //
 //
@@ -13,7 +12,7 @@ public class TipCalc {
 //        for (int i = 0; i < bills.size(); i++) {
 //            bills.get(i).billAfter();
 //        }
-
+        // initializing variables
         Scanner scan = new Scanner(System.in);
         double priceAddedToBill;
         int groupSize;
@@ -44,7 +43,7 @@ public class TipCalc {
         // start of single bill option
         if (togetherPay == 1) {
             System.out.println("Okay! Only one bill will be printed.");
-            System.out.print("How many people are in your group: ");
+            System.out.print("How many people are in your group?: ");
             groupSize = scan.nextInt();
             scan.nextLine();
 
@@ -75,17 +74,17 @@ public class TipCalc {
 
                 if (tipDecision.equals("yes")) {
                     // yes tip
-                    System.out.print("Thank you! How much would you like to tip?: ");
+                    System.out.print("Thank you! How many dollars would you like to tip?: ");
                     tip = (Math.round(100 * scan.nextDouble())) / 100.0;
                     single.totalBillSetter(single.totalBillGetter() + tip);
                     single.tipSetter(tip);
                     single.billAfter();
-                    System.out.println("$" + tip + " is " + single.tipAmount() + "% of your order \n");
-                    System.out.println("Thank you for enjoying a meal at Jade's!");
+                    System.out.println("$" + tip + " is " + single.tipAmount() + "% of your order");
+                    System.out.println("Thank you for enjoying a meal at Jade's!\n");
 
                 } else if (tipDecision.equals("no")) {
                     // no tip
-                    System.out.println("Thank you for enjoying a meal at Jade's!");
+                    System.out.println("Thank you for enjoying a meal at Jade's!\n");
 
                 } else {
                     // answer was not acceptable
@@ -106,7 +105,7 @@ public class TipCalc {
                     // making 3 bills
                     while (billNumber < 4) {
                         // dividing the separate bills among people
-                        System.out.print("How many people will be paying for bill " + billNumber + "? : ");
+                        System.out.print("How many people will be paying for bill " + billNumber + "?: ");
                         groupSize = scan.nextInt();
                         scan.nextLine();
 
@@ -144,17 +143,17 @@ public class TipCalc {
 
                                 if (tipDecision.equals("yes")) {
                                     // yes tip
-                                    System.out.print("Thank you! How much would you like to tip?: ");
+                                    System.out.print("Thank you! How many dollars would you like to tip?: ");
                                     tip = (Math.round(100 * scan.nextDouble())) / 100.0;
                                     billOne.totalBillSetter(billOne.totalBillGetter() + tip);
                                     billOne.tipSetter(tip);
                                     billOne.billAfter();
-                                    System.out.println("$" + tip + " is " + billOne.tipAmount() + "% of your order\n");
-                                    System.out.println("Thank you for enjoying a meal at Jade's!");
+                                    System.out.println("$" + tip + " is " + billOne.tipAmount() + "% of your order");
+                                    System.out.println("Thank you for enjoying a meal at Jade's!\n");
 
                                 } else if (tipDecision.equals("no")) {
                                     // no tip
-                                    System.out.println("Thank you for enjoying a meal at Jade's!");
+                                    System.out.println("Thank you for enjoying a meal at Jade's!\n");
 
                                 } else {
                                     // answer was not acceptable
@@ -181,23 +180,24 @@ public class TipCalc {
 
                                 if (tipDecision.equals("yes")) {
                                     // yes tip
-                                    System.out.print("Thank you! How much would you like to tip?: ");
+                                    System.out.print("Thank you! How many dollars would you like to tip?: ");
                                     tip = (Math.round(100 * scan.nextDouble())) / 100.0;
                                     billTwo.totalBillSetter(billTwo.totalBillGetter() + tip);
                                     billTwo.tipSetter(tip);
                                     billTwo.billAfter();
-                                    System.out.println("$" + tip + " is " + billTwo.tipAmount() + "% of your order\n");
-                                    System.out.println("Thank you for enjoying a meal at Jade's!");
+                                    System.out.println("$" + tip + " is " + billTwo.tipAmount() + "% of your order");
+                                    System.out.println("Thank you for enjoying a meal at Jade's!\n");
 
                                 } else if (tipDecision.equals("no")) {
                                     // no tip
-                                    System.out.println("Thank you for enjoying a meal at Jade's!");
+                                    System.out.println("Thank you for enjoying a meal at Jade's!\n");
 
                                 } else {
                                     // answer was not acceptable
                                     System.out.println("Error, invalid input try again \n");
                                 }
                             }
+                            tipDecision = "empty";
                         }   else {
                             // creating bill 3
                             BillSaver billThree = new BillSaver(billNumber, groupSize, itemsOrdered, bill, billTotalPrice);
@@ -210,17 +210,17 @@ public class TipCalc {
 
                                 if (tipDecision.equals("yes")) {
                                     // yes tip
-                                    System.out.print("Thank you! How much would you like to tip?: ");
+                                    System.out.print("Thank you! How many dollars would you like to tip?: ");
                                     tip = (Math.round(100 * scan.nextDouble())) / 100.0;
                                     billThree.totalBillSetter(billThree.totalBillGetter() + tip);
                                     billThree.tipSetter(tip);
                                     billThree.billAfter();
-                                    System.out.println("$" + tip + " is " + billThree.tipAmount() + "% of your order\n");
-                                    System.out.println("Thank you for enjoying a meal at Jade's!");
+                                    System.out.println("$" + tip + " is " + billThree.tipAmount() + "% of your order");
+                                    System.out.println("Thank you for enjoying a meal at Jade's! \n");
 
                                 } else if (tipDecision.equals("no")) {
                                     // no tip
-                                    System.out.println("Thank you for enjoying a meal at Jade's!");
+                                    System.out.println("Thank you for enjoying a meal at Jade's! \n");
 
                                 } else {
                                     // answer was not acceptable
@@ -236,7 +236,7 @@ public class TipCalc {
                     // only 2 bills
                     while (billNumber < 3) {
                         // dividing the separate bills among people
-                        System.out.print("How many people will be paying for bill " + billNumber + "? : ");
+                        System.out.print("How many people will be paying for bill " + billNumber + "?: ");
                         groupSize = scan.nextInt();
                         scan.nextLine();
 
@@ -275,17 +275,17 @@ public class TipCalc {
 
                                 if (tipDecision.equals("yes")) {
                                     // yes tip
-                                    System.out.print("Thank you! How much would you like to tip?: ");
+                                    System.out.print("Thank you! How many dollars would you like to tip?: ");
                                     tip = (Math.round(100 * scan.nextDouble())) / 100.0;
                                     billOne.totalBillSetter(billOne.totalBillGetter() + tip);
                                     billOne.tipSetter(tip);
                                     billOne.billAfter();
-                                    System.out.println("$" + tip + " is " + billOne.tipAmount() + "% of your order\n");
-                                    System.out.println("Thank you for enjoying a meal at Jade's!");
+                                    System.out.println("$" + tip + " is " + billOne.tipAmount() + "% of your order");
+                                    System.out.println("Thank you for enjoying a meal at Jade's!\n");
 
                                 } else if (tipDecision.equals("no")) {
                                     // no tip
-                                    System.out.println("Thank you for enjoying a meal at Jade's!");
+                                    System.out.println("Thank you for enjoying a meal at Jade's!\n");
 
                                 } else {
                                     // answer was not acceptable
@@ -305,17 +305,17 @@ public class TipCalc {
 
                                 if (tipDecision.equals("yes")) {
                                     // yes tip
-                                    System.out.print("Thank you! How much would you like to tip?: ");
+                                    System.out.print("Thank you! How many dollars would you like to tip?: ");
                                     tip = (Math.round(100 * scan.nextDouble())) / 100.0;
                                     billTwo.totalBillSetter(billTwo.totalBillGetter() + tip);
                                     billTwo.tipSetter(tip);
                                     billTwo.billAfter();
-                                    System.out.println("$" + tip + " is " + billTwo.tipAmount() + "% of your order\n");
-                                    System.out.println("Thank you for enjoying a meal at Jade's!");
+                                    System.out.println("$" + tip + " is " + billTwo.tipAmount() + "% of your order");
+                                    System.out.println("Thank you for enjoying a meal at Jade's!\n");
 
                                 } else if (tipDecision.equals("no")) {
                                     // no tip
-                                    System.out.println("Thank you for enjoying a meal at Jade's!");
+                                    System.out.println("Thank you for enjoying a meal at Jade's!\n");
 
                                 } else {
                                     // answer was not acceptable
